@@ -1,5 +1,6 @@
 package pl.spring.demo.service;
 
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.to.LibraryTo;
 
 import java.util.List;
@@ -8,6 +9,6 @@ public interface LibraryService {
     List<LibraryTo> findAllLibraries();
     List<LibraryTo> findAllLibrariesByName(String name);
     List<LibraryTo> findAllLibrariesInCity(String cityName);
-    List<LibraryTo> findLibrariesByLibraryType(String libraryType);
     List<LibraryTo> findLibrariesThatHaveBookByTitle(String bookTitle);
+	List<LibraryTo> findLibrariesByLibraryType(LibraryType typeL);
 }

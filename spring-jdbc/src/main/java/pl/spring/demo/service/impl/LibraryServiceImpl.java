@@ -57,9 +57,9 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
 	@Override
-	public List<LibraryTo> findLibrariesByLibraryType(String libType) {
-		LibraryType lT=LibraryType.valueOf(libType);
-        SqlParameterSource params = new MapSqlParameterSource("type", lT.ordinal()+1);//+1 cause table is numerate from 1
+	public List<LibraryTo> findLibrariesByLibraryType(LibraryType typeL) {
+
+        SqlParameterSource params = new MapSqlParameterSource("type", typeL.ordinal()+1);//+1 cause table is numerate from 1
         return jdbcTemplate.query(FIND_ALL_LIBRARIES_BY_TYPE_SQL, params, libraryRowMapper);
 	}
 }
