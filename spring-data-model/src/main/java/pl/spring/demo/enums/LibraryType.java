@@ -1,5 +1,5 @@
 package pl.spring.demo.enums;
 
-public enum TypesLibrary {
+public enum LibraryType {
     academic, children, national, special 
 }

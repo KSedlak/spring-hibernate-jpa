@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.spring.demo.entity.LibraryEntity;
-import pl.spring.demo.enums.TypesLibrary;
+import pl.spring.demo.enums.LibraryType;
 
 import static org.junit.Assert.*;
 
@@ -33,10 +33,10 @@ public class LibraryDaoTest {
     @Test
     public void testShouldFindLibrariesByType() {
         // given
-        final TypesLibrary type=TypesLibrary.academic;
+        final LibraryType type=LibraryType.academic;
         // when
         List<LibraryEntity> libraryEntity = libraryDao.findByType(type);
-        TypesLibrary res=libraryEntity.get(0).getTypeL();
+        LibraryType res=libraryEntity.get(0).getTypeL();
         // then
         assertNotNull(libraryEntity);
         assertFalse(libraryEntity.isEmpty());

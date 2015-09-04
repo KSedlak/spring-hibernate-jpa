@@ -2,7 +2,7 @@ package pl.spring.demo.to;
 
 import java.util.Set;
 
-import pl.spring.demo.enums.TypesLibrary;
+import pl.spring.demo.enums.LibraryType;
 
 public class LibraryTo {
     private Long id;
@@ -10,7 +10,7 @@ public class LibraryTo {
     private AddressTo address;
     private Set<BookTo> books;
     private long version;
-    private TypesLibrary typeL;
+    private LibraryType typeL;
 
     public Long getId() {
         return id;
@@ -52,11 +52,11 @@ public class LibraryTo {
         this.version = version;
     }
 
-	public TypesLibrary getTypeL() {
+	public LibraryType getTypeL() {
 		return typeL;
 	}
 
-	public void setTypeL(TypesLibrary typeL) {
+	public void setTypeL(LibraryType typeL) {
 		this.typeL = typeL;
 	}
 }

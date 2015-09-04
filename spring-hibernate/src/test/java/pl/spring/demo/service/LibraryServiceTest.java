@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import pl.spring.demo.enums.TypesLibrary;
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.to.BookTo;
 import pl.spring.demo.to.LibraryTo;
 
@@ -102,7 +102,7 @@ public class LibraryServiceTest {
     @Test
     public void testShouldReturnLibrariesByType() {
         // given
-        final TypesLibrary type = TypesLibrary.children;
+        final LibraryType type = LibraryType.children;
         // when
         List<LibraryTo> libraries = libraryService.findAllLibrariesByType(type);
         // then

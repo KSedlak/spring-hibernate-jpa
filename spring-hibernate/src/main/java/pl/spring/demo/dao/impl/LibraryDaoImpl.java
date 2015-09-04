@@ -3,7 +3,7 @@ package pl.spring.demo.dao.impl;
 import org.springframework.stereotype.Repository;
 import pl.spring.demo.dao.LibraryDao;
 import pl.spring.demo.entity.LibraryEntity;
-import pl.spring.demo.enums.TypesLibrary;
+import pl.spring.demo.enums.LibraryType;
 
 import java.util.List;
 
@@ -31,7 +31,7 @@ public class LibraryDaoImpl extends AbstractDao<LibraryEntity> implements Librar
     }
 
 	@Override
-	public List<LibraryEntity> findByType(TypesLibrary type) {
+	public List<LibraryEntity> findByType(LibraryType type) {
 	     return getSession().createQuery("from LibraryEntity l where l.typeL like :type").setParameter("type", type).list();
 	}
 }
