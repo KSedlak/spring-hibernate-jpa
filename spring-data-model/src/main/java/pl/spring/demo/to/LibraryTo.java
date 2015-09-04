@@ -2,12 +2,15 @@ package pl.spring.demo.to;
 
 import java.util.Set;
 
+import pl.spring.demo.enums.TypesLibrary;
+
 public class LibraryTo {
     private Long id;
     private String name;
     private AddressTo address;
     private Set<BookTo> books;
     private long version;
+    private TypesLibrary typeL;
 
     public Long getId() {
         return id;
@@ -48,4 +51,12 @@ public class LibraryTo {
     public void setVersion(long version) {
         this.version = version;
     }
+
+	public TypesLibrary getTypeL() {
+		return typeL;
+	}
+
+	public void setTypeL(TypesLibrary typeL) {
+		this.typeL = typeL;
+	}
 }

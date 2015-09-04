@@ -5,6 +5,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import pl.spring.demo.enums.TypesLibrary;
 import pl.spring.demo.to.BookTo;
 import pl.spring.demo.to.LibraryTo;
 
@@ -96,6 +98,19 @@ public class LibraryServiceTest {
         assertNotNull(librariesByNewName);
         assertFalse(librariesByNewName.isEmpty());
     }
+    
+    @Test
+    public void testShouldReturnLibrariesByType() {
+        // given
+        final TypesLibrary type = TypesLibrary.children;
+        // when
+        List<LibraryTo> libraries = libraryService.findAllLibrariesByType(type);
+        // then
+        assertNotNull(libraries);
+        assertFalse(libraries.isEmpty());
+        assertEquals(type.toString(), libraries.get(0).getTypeL().toString());
+    }
+
 
     @Test(expected = org.springframework.orm.ObjectOptimisticLockingFailureException.class)
     public void testShouldThrowOptimisticLockingExceptionOnLibraryUpdate() {

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.spring.demo.dao.LibraryDao;
 import pl.spring.demo.entity.LibraryEntity;
+import pl.spring.demo.enums.TypesLibrary;
 import pl.spring.demo.service.LibraryService;
 import pl.spring.demo.to.LibraryTo;
 
@@ -51,4 +52,10 @@ public class LibraryServiceImpl implements LibraryService {
         libraryDao.saveOrUpdate(libraryEntity);
         return mapper.map(libraryEntity, LibraryTo.class);
     }
+
+	@Override
+	public List<LibraryTo> findAllLibrariesByType(TypesLibrary type) {
+		List<LibraryEntity> libraries = libraryDao.findByType(type);
+        return mapper.mapAsList(libraries, LibraryTo.class);
+	}
 }

@@ -1,6 +1,9 @@
 package pl.spring.demo.entity;
 
 import javax.persistence.*;
+
+import pl.spring.demo.enums.TypesLibrary;
+
 import java.io.Serializable;
 import java.util.Set;
 
@@ -18,6 +21,8 @@ public class LibraryEntity implements Serializable {
     private Set<BookEntity> books;
     @Version
     private long version;
+   @Enumerated(EnumType.STRING)
+    private TypesLibrary typeL;
 
     public Long getId() {
         return id;
@@ -58,4 +63,12 @@ public class LibraryEntity implements Serializable {
     public void setVersion(long version) {
         this.version = version;
     }
+
+	public TypesLibrary getTypeL() {
+		return typeL;
+	}
+
+	public void setTypeL(TypesLibrary typeL) {
+		this.typeL = typeL;
+	}
 }
