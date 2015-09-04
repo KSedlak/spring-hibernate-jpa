@@ -5,6 +5,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.to.LibraryTo;
 
 import java.util.List;
@@ -62,5 +64,18 @@ public class LibraryServiceTest {
         assertNotNull(libraries);
         assertFalse(libraries.isEmpty());
         assertEquals("Biblioteka Rynek", libraries.get(0).getName());
+    }
+    
+    @Test
+    public void testShouldReturnLibrariesByType() {
+        // given
+        final String type = LibraryType.national.toString();
+        // when
+        List<LibraryTo> libraries = libraryService.findLibrariesByLibraryType(type);
+        LibraryType result=libraries.get(0).getType();
+        // then
+        assertNotNull(libraries);
+        assertFalse(libraries.isEmpty());
+        assertEquals(type,result.toString());
     }
 }

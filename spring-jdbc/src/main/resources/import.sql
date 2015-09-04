@@ -1,9 +1,12 @@
 insert into Address (id, city, street, street_number, postal_code) values (1, 'Wrocław', 'Rynek', '44', '55-555');
 insert into Address (id, city, street, street_number, postal_code) values (2, 'Wrocław', 'Strzegomska', '42', '55-551');
 
-insert into libraryType (id, typeL) values (1, 'X');
-insert into Library (id, name, address_id,type_id) values (1, 'Biblioteka Rynek', 1,1);
-insert into Library (id, name, address_id,type_id) values (2, 'Biblioteka Miejska', 2,1);
+insert into libraryType (id, typeL) values (1, 'academic');
+insert into libraryType (id, typeL) values (2, 'children');
+insert into libraryType (id, typeL) values (3, 'national');
+insert into libraryType (id, typeL) values (4, 'special');
+insert into Library (id, name, address_id,type_id) values (1, 'Biblioteka Rynek', 1,2);
+insert into Library (id, name, address_id,type_id) values (2, 'Biblioteka Miejska', 2,3);
 
 insert into Book (id, title, library_id) values (1, 'Sample Book', 1);
 

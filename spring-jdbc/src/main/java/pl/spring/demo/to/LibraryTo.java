@@ -2,13 +2,24 @@ package pl.spring.demo.to;
 
 import java.util.Set;
 
+import pl.spring.demo.enums.LibraryType;
+
 public class LibraryTo {
     private Long id;
     private String name;
     private AddressTo address;
     private Set<BookTo> books;
+    private LibraryType type;
 
-    public Long getId() {
+    public LibraryType getType() {
+		return type;
+	}
+
+	public void setType(LibraryType type) {
+		this.type = type;
+	}
+
+	public Long getId() {
         return id;
     }
 

@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Service;
+
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.rowmapper.LibraryRowMapper;
 import pl.spring.demo.service.LibraryService;
 import pl.spring.demo.to.LibraryTo;
@@ -16,13 +18,15 @@ import java.util.List;
 public class LibraryServiceImpl implements LibraryService {
 
     private static final String FIND_ALL_LIBRARIES_SQL =
-            "select id, name, address_id from Library";
+            "select id, name, address_id, type_id from Library";
     private static final String FIND_ALL_LIBRARIES_BY_NAME_SQL =
-            "select id, name, address_id from Library where name = :name";
+            "select id, name, address_id, type_id from Library where name = :name";
+    private static final String FIND_ALL_LIBRARIES_BY_TYPE_SQL =
+            "select id, name, address_id, type_id from Library where type_id = :type";
     private static final String FIND_ALL_LIBRARIES_IN_CITY_SQL =
-            "select l.id, l.name, l.address_id from Library l, Address a where l.address_id = a.id and a.city = :city";
+            "select l.id, l.name, l.address_id, type_id from Library l, Address a where l.address_id = a.id and a.city = :city";
     private static final String FIND_ALL_LIBRARIES_HAVING_BOOK_SQL =
-            "select l.id, l.name, l.address_id from Library l where exists (Select 1 from Book b where b.library_id = l.id and b.title like :title)";
+            "select l.id, l.name, l.address_id, type_id from Library l where exists (Select 1 from Book b where b.library_id = l.id and b.title like :title)";
 
     @Autowired
     private NamedParameterJdbcOperations jdbcTemplate;
@@ -51,4 +55,11 @@ public class LibraryServiceImpl implements LibraryService {
         SqlParameterSource params = new MapSqlParameterSource("title", bookTitle);
         return jdbcTemplate.query(FIND_ALL_LIBRARIES_HAVING_BOOK_SQL, params, libraryRowMapper);
     }
+
+	@Override
+	public List<LibraryTo> findLibrariesByLibraryType(String libType) {
+		LibraryType lT=LibraryType.valueOf(libType);
+        SqlParameterSource params = new MapSqlParameterSource("type", lT.ordinal()+1);
+        return jdbcTemplate.query(FIND_ALL_LIBRARIES_BY_TYPE_SQL, params, libraryRowMapper);
+	}
 }

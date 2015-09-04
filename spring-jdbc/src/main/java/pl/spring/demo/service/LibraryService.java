@@ -8,5 +8,6 @@ public interface LibraryService {
     List<LibraryTo> findAllLibraries();
     List<LibraryTo> findAllLibrariesByName(String name);
     List<LibraryTo> findAllLibrariesInCity(String cityName);
+    List<LibraryTo> findLibrariesByLibraryType(String libraryType);
     List<LibraryTo> findLibrariesThatHaveBookByTitle(String bookTitle);
 }

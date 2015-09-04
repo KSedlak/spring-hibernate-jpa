@@ -2,6 +2,8 @@ package pl.spring.demo.rowmapper;
 
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.to.AddressTo;
 import pl.spring.demo.to.LibraryTo;
 
@@ -18,6 +20,7 @@ public class LibraryRowMapper implements RowMapper<LibraryTo> {
         library.setId(rs.getLong(1));
         library.setName(rs.getString(2));
         library.setAddress(mapAddressById(rs.getLong(3)));
+        library.setType(LibraryType.values()[rs.getInt(4)-1]);
         return library;
     }
 
