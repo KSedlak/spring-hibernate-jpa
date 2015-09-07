@@ -7,7 +7,7 @@ import java.util.Set;
 @Entity
 @Table(name = "PERSON")
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class PersonEntity implements Serializable {
+public class PersonEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
