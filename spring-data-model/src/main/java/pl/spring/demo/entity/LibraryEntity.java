@@ -14,7 +14,7 @@ public class LibraryEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    @OneToOne(optional = true, fetch = FetchType.LAZY)
+    @OneToOne(optional = true, fetch = FetchType.EAGER)
     @JoinColumn(name = "address_id", nullable = true)
     private AddressEntity address;
     @OneToMany(mappedBy = "library", orphanRemoval = false, cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)

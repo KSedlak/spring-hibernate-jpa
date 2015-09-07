@@ -67,7 +67,19 @@ public class LibraryRepositoryTest {
         assertEquals(type.toString(),result.toString());
     }
    
-
+   @Test
+   public void testShouldFindLibrarariesByStreet() {
+       // given
+	   final String street = "Strzegomska";
+       // when
+       List<LibraryEntity> libraryEntity = libraryRepository.findByAddress_Street(street);
+       String result= libraryEntity.get(0).getAddress().getStreet();
+       // the
+       assertNotNull(libraryEntity);
+       assertFalse(libraryEntity.isEmpty());
+       assertEquals(street,result);
+   }
+  
 
     
 }
