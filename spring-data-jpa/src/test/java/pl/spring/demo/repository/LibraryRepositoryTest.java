@@ -5,13 +5,12 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
+import pl.spring.demo.enums.LibraryType;
+
+import static org.junit.Assert.*;
 
 import java.util.List;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = "CommonRepositoryTest-context.xml")
@@ -41,4 +40,32 @@ public class LibraryRepositoryTest {
         assertNotNull(libraryEntity);
         assertFalse(libraryEntity.isEmpty());
     }
+    
+    @Test
+    public void testShouldFindLibrarariesByType_custom() {
+        // given
+    	final LibraryType type=LibraryType.academic;
+        // when
+        List<LibraryEntity> libraryEntity = libraryRepository.findByType_custom(type);
+        LibraryType result= libraryEntity.get(0).getTypeL();
+        // then
+        assertNotNull(libraryEntity);
+        assertFalse(libraryEntity.isEmpty());
+        assertEquals(type.toString(),result.toString());
+    }
+    
+   @Test
+    public void testShouldFindLibrarariesByType() {
+        // given
+    	final LibraryType type=LibraryType.academic;
+        // when
+        List<LibraryEntity> libraryEntity = libraryRepository.findByTypeL(type);
+        LibraryType result= libraryEntity.get(0).getTypeL();
+        // the
+        assertNotNull(libraryEntity);
+        assertFalse(libraryEntity.isEmpty());
+        assertEquals(type.toString(),result.toString());
+    }
+   
+    
 }

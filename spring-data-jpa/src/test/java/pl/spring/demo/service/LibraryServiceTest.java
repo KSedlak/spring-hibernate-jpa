@@ -5,6 +5,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import pl.spring.demo.entity.LibraryEntity;
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.to.BookTo;
 import pl.spring.demo.to.LibraryTo;
 
@@ -63,7 +66,32 @@ public class LibraryServiceTest {
             assertLibraryHasBook(library, bookTitle);
         }
     }
-
+    @Test
+    public void testShouldFindLibrarariesByType_custom() {
+        // given
+    	final LibraryType type=LibraryType.academic;
+        // when
+        List<LibraryTo> libraries = libraryService.findAllLibrariesByType_custom(type);
+        LibraryType result= libraries.get(0).getTypeL();
+        // then
+        assertNotNull(libraries);
+        assertFalse(libraries.isEmpty());
+        assertEquals(type.toString(),result.toString());
+    }
+    
+   @Test
+    public void testShouldFindLibrarariesByType() {
+        // given
+    	final LibraryType type=LibraryType.academic;
+        // when
+        List<LibraryTo> libraries = libraryService.findAllLibrariesByType(type);
+        LibraryType result=libraries.get(0).getTypeL();
+        // the
+        assertNotNull(libraries);
+        assertFalse(libraries.isEmpty());
+        assertEquals(type.toString(),result.toString());
+    }
+   
     @Test
     public void testShouldSaveNewLibrary() {
         // given

@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.spring.demo.entity.LibraryEntity;
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.repository.LibraryRepository;
 import pl.spring.demo.service.LibraryService;
 import pl.spring.demo.to.LibraryTo;
@@ -51,4 +52,15 @@ public class LibraryServiceImpl implements LibraryService {
         libraryEntity = libraryRepository.save(libraryEntity);
         return mapper.map(libraryEntity, LibraryTo.class);
     }
+
+	@Override
+	public List<LibraryTo> findAllLibrariesByType_custom(LibraryType type) {
+	       List<LibraryEntity> libraries = libraryRepository.findByType_custom(type);
+	        return mapper.mapAsList(libraries, LibraryTo.class);
+	}
+	@Override
+	public List<LibraryTo> findAllLibrariesByType(LibraryType type) {
+	       List<LibraryEntity> libraries = libraryRepository.findByTypeL(type);
+	        return mapper.mapAsList(libraries, LibraryTo.class);
+	}
 }
