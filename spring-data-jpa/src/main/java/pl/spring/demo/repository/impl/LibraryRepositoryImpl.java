@@ -6,6 +6,7 @@ import org.jinq.jpa.JinqJPAStreamProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.repository.LibraryLambdaRepository;
 import pl.spring.demo.searchcriteria.LibrarySearchCriteria;
 
@@ -45,6 +46,10 @@ public class LibraryRepositoryImpl implements LibraryLambdaRepository {
         if (librarySearchCriteria.getName() != null) {
             String libraryName = librarySearchCriteria.getName();
             stream = stream.where(l -> l.getName().equals(libraryName));
+        }
+        if (librarySearchCriteria.getType() != null) {
+           LibraryType type = librarySearchCriteria.getType();
+            stream = stream.where(l -> l.getTypeL().equals(type));
         }
         if (!librarySearchCriteria.getAnyBook().isEmpty()) {
             List<String> lambdaParameter = new ArrayList<>(librarySearchCriteria.getAnyBook());

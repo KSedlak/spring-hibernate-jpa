@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.spring.demo.entity.LibraryEntity;
+import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.searchcriteria.LibrarySearchCriteria;
 
 import java.util.List;
@@ -62,5 +63,18 @@ public class LibraryLambdaRepositoryTest {
         assertNotNull(libraries);
         assertFalse(libraries.isEmpty());
         assertEquals(1, libraries.size());
+    }
+    @Test
+    
+    public void testShouldFindLibraryByType() {
+        // given
+        final LibraryType type=LibraryType.academic;
+        LibrarySearchCriteria searchCriteria = new LibrarySearchCriteria.LibrarySearchCriteriaBuilder().withType(type).build();
+        // when
+        List<LibraryEntity> libraries = libraryLambdaRepository.findLibrariesBySearchCriteria(searchCriteria);
+        LibraryType res=libraries.get(0).getTypeL();
+        // then
+        assertNotNull(libraries);
+        assertEquals(type, res);
     }
 }

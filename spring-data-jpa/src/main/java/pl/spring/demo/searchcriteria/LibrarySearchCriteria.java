@@ -4,11 +4,23 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import pl.spring.demo.enums.LibraryType;
+
 public class LibrarySearchCriteria implements Serializable {
 
     private Long id;
     private String name;
-    private Set<String> anyBook = new HashSet<>();
+    private LibraryType type;
+    
+    public LibraryType getType() {
+		return type;
+	}
+
+	public void setType(LibraryType type) {
+		this.type = type;
+	}
+
+	private Set<String> anyBook = new HashSet<>();
 
     private LibrarySearchCriteria() {
 
@@ -41,6 +53,11 @@ public class LibrarySearchCriteria implements Serializable {
 
         public LibrarySearchCriteriaBuilder withBook(String bookTitile) {
             librarySearchCriteria.anyBook.add(bookTitile);
+            return this;
+        }
+        
+        public LibrarySearchCriteriaBuilder withType(LibraryType type) {
+            librarySearchCriteria.type=type;
             return this;
         }
 

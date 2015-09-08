@@ -71,4 +71,6 @@ public class LibraryEntity implements Serializable {
 	public void setTypeL(LibraryType typeL) {
 		this.typeL = typeL;
 	}
+
+
 }
