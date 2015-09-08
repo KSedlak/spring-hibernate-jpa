@@ -4,14 +4,11 @@ import org.jinq.jpa.JPAJinqStream;
 import org.jinq.jpa.JPQL;
 import org.jinq.jpa.JinqJPAStreamProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import pl.spring.demo.entity.AddressEntity;
 import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
 import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.repository.LibraryLambdaRepository;
 import pl.spring.demo.searchcriteria.LibrarySearchCriteria;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
