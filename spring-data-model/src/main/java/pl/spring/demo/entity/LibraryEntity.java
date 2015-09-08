@@ -21,7 +21,7 @@ public class LibraryEntity implements Serializable {
     private Set<BookEntity> books;
     @Version
     private long version;
-   @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING)
     private LibraryType typeL;
 
     public Long getId() {
