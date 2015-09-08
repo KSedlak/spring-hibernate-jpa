@@ -4,6 +4,8 @@ import org.jinq.jpa.JPAJinqStream;
 import org.jinq.jpa.JPQL;
 import org.jinq.jpa.JinqJPAStreamProvider;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import pl.spring.demo.entity.AddressEntity;
 import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
 import pl.spring.demo.enums.LibraryType;
@@ -62,6 +64,11 @@ public class LibraryRepositoryImpl implements LibraryLambdaRepository {
 	@Override
 	public List<LibraryEntity> findLibraryByType(LibraryType type) {
 	    return jinqJPAStreamProvider.streamAll(entityManager, LibraryEntity.class).where( l -> l.getTypeL() == type ).toList();
+	}
+
+	@Override
+	public LibraryEntity findLibraryByStreet(String streetName) {
+	    return jinqJPAStreamProvider.streamAll(entityManager, LibraryEntity.class).where(l->l.getAddress().getStreet().equals(streetName)).getOnlyValue();
 	}
 
 

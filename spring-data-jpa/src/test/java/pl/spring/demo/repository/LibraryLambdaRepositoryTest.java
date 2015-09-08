@@ -89,4 +89,16 @@ public class LibraryLambdaRepositoryTest {
         assertNotNull(libraries);
         assertEquals(type, res);
     }
+        @Test   
+        public void testShouldFindLibraryByStreet() {
+            // given
+            final String street="Strzegomska";
+            // when
+            LibraryEntity library = libraryLambdaRepository.findLibraryByStreet(street);
+            String res=library.getAddress().getStreet();
+            // then
+            assertNotNull(library);
+            assertEquals(street, res);
+        }
+    
 }

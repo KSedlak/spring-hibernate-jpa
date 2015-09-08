@@ -14,6 +14,7 @@ public interface LibraryLambdaRepository {
     List<LibraryEntity> findAllLibraries();
     LibraryEntity findLibraryById(long id);
     List<LibraryEntity> findLibraryByType(LibraryType type);
+    LibraryEntity findLibraryByStreet(String streetName);
     List<LibraryEntity> findLibrariesBySearchCriteria(LibrarySearchCriteria librarySearchCriteria);
 
 }
