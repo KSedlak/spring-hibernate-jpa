@@ -8,5 +8,6 @@ public interface PersonLambdaRepository {
 	List<PersonEntity> findAllPersons();
 	List<PersonEntity> findAdultPersons();
 	List<PersonEntity> findNotAdultPersons();
-
+	List<PersonEntity> findAllPersonsSortedByAge();
+	
 }

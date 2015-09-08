@@ -31,4 +31,11 @@ public class PersonRepositoryImpl implements PersonLambdaRepository{
 		return jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class).toList();
 	}
 
+	@Override
+	public List<PersonEntity> findAllPersonsSortedByAge() {
+		return jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class).sortedDescendingBy(per->per.getAge()).toList();
+	}
+
+
+
 }

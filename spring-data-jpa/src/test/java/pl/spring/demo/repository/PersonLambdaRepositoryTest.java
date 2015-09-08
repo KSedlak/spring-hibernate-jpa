@@ -21,7 +21,7 @@ public class PersonLambdaRepositoryTest {
 
     @Test
     public void testShouldReturnAllPersons() {
-        // given when
+        // when  
         List<PersonEntity> persons = personLambdaRepository.findAllPersons();
         // then
         assertNotNull(persons);
@@ -31,7 +31,7 @@ public class PersonLambdaRepositoryTest {
     
     @Test
     public void testShouldReturnAllAdultPersons() {
-        // given when
+        // when
         List<PersonEntity> persons = personLambdaRepository.findAdultPersons();
         int size=persons.size();
         // then
@@ -42,13 +42,22 @@ public class PersonLambdaRepositoryTest {
    
     @Test
     public void testShouldReturnAllNotAdultPersons() {
-        // given when
+        // when
         List<PersonEntity> persons = personLambdaRepository.findNotAdultPersons();
         int size=persons.size();
         // then
         assertNotNull(persons);
         assertFalse(persons.isEmpty());
         assertEquals(1, size);
+    }
+    @Test
+    public void testShouldReturnAllPersonsSorted() {
+        // when  
+        List<PersonEntity> persons = personLambdaRepository.findAllPersonsSortedByAge();
+        // then
+        assertNotNull(persons);
+        assertFalse(persons.isEmpty());
+        assertEquals(44, persons.get(0).getAge());
     }
    
 }
