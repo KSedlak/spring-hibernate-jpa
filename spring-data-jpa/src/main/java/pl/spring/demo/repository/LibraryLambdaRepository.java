@@ -1,5 +1,6 @@
 package pl.spring.demo.repository;
 
+import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
 import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.searchcriteria.LibrarySearchCriteria;
@@ -16,5 +17,5 @@ public interface LibraryLambdaRepository {
     List<LibraryEntity> findLibraryByType(LibraryType type);
     LibraryEntity findLibraryByStreet(String streetName);
     List<LibraryEntity> findLibrariesBySearchCriteria(LibrarySearchCriteria librarySearchCriteria);
-
+    List<BookEntity> findAllBooksInLibrary(long id);
 }

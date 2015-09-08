@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
 import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.searchcriteria.LibrarySearchCriteria;
@@ -99,6 +101,18 @@ public class LibraryLambdaRepositoryTest {
             // then
             assertNotNull(library);
             assertEquals(street, res);
+        }
+        
+        @Test   
+        public void testShouldFindBooksInLibraryById() {
+            // given
+            final long id=1;
+            // when
+            List<BookEntity> books = libraryLambdaRepository.findAllBooksInLibrary(id);
+           String res=books.get(0).getTitle();
+            // then
+            assertNotNull(books);
+            assertEquals("Sample Book", res);
         }
     
 }

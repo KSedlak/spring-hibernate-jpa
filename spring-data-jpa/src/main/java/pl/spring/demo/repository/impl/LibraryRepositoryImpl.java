@@ -68,5 +68,10 @@ public class LibraryRepositoryImpl implements LibraryLambdaRepository {
 	    return jinqJPAStreamProvider.streamAll(entityManager, LibraryEntity.class).where(l->l.getAddress().getStreet().equals(streetName)).getOnlyValue();
 	}
 
+	@Override
+	public List<BookEntity> findAllBooksInLibrary(long id) {
+		  return jinqJPAStreamProvider.streamAll(entityManager, BookEntity.class).where(book->book.getLibrary().getId()==id).toList();
+	}
+
 
 }
