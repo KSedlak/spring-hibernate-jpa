@@ -66,12 +66,24 @@ public class LibraryLambdaRepositoryTest {
     }
     @Test
     
-    public void testShouldFindLibraryByType() {
+    public void testShouldFindLibraryByTypeSearchCriteria() {
         // given
         final LibraryType type=LibraryType.academic;
         LibrarySearchCriteria searchCriteria = new LibrarySearchCriteria.LibrarySearchCriteriaBuilder().withType(type).build();
         // when
         List<LibraryEntity> libraries = libraryLambdaRepository.findLibrariesBySearchCriteria(searchCriteria);
+        LibraryType res=libraries.get(0).getTypeL();
+        // then
+        assertNotNull(libraries);
+        assertEquals(type, res);
+    }
+    
+    @Test   
+    public void testShouldFindLibraryByType() {
+        // given
+        final LibraryType type=LibraryType.academic;
+        // when
+        List<LibraryEntity> libraries = libraryLambdaRepository.findLibraryByType(type);
         LibraryType res=libraries.get(0).getTypeL();
         // then
         assertNotNull(libraries);

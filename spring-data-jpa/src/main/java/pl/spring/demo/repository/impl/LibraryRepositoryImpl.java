@@ -26,7 +26,7 @@ public class LibraryRepositoryImpl implements LibraryLambdaRepository {
     public List<LibraryEntity> findAllLibraries() {
         return jinqJPAStreamProvider.streamAll(entityManager, LibraryEntity.class).toList();
     }
-
+    
     @Override
     public LibraryEntity findLibraryById(long id) {
         JPAJinqStream<LibraryEntity> stream = jinqJPAStreamProvider.streamAll(entityManager, LibraryEntity.class).where(l -> l.getId() == id);
@@ -58,6 +58,11 @@ public class LibraryRepositoryImpl implements LibraryLambdaRepository {
         }
         return stream.toList();
     }
+
+	@Override
+	public List<LibraryEntity> findLibraryByType(LibraryType type) {
+	    return jinqJPAStreamProvider.streamAll(entityManager, LibraryEntity.class).where( l -> l.getTypeL() == type ).toList();
+	}
 
 
 }
