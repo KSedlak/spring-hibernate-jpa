@@ -21,19 +21,32 @@ public class PersonRepositoryTest {
     private PersonRepository personRepository;
 
    @Test
-    public void testShouldFindPersonByAge() {
+    public void testShouldFindPersonByAgeLess() {
         // given
     	final int age=18;
         // when
-        List<PersonEntity> PersonEntity =personRepository.findByAgeLessThanEqual(age); 
+        List<PersonEntity> PersonEntity =personRepository.findByAgeLessThan(age); 
         	int resultSize=PersonEntity.size();
         // the
         assertNotNull(PersonEntity);
         assertFalse(PersonEntity.isEmpty());
-        assertEquals(2,resultSize);
+        assertEquals(1,resultSize);
     }
    
 
+   @Test
+   public void testShouldFindPersonByAgeGreater() {
+       // given
+   	final int age=18;
+       // when
+       List<PersonEntity> PersonEntity =personRepository.findByAgeGreaterThanEqual(age); 
+       	int resultSize=PersonEntity.size();
+       // the
+       assertNotNull(PersonEntity);
+       assertFalse(PersonEntity.isEmpty());
+       assertEquals(2,resultSize);
+   }
+  
 
     
 }

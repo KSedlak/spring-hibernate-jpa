@@ -9,5 +9,7 @@ import pl.spring.demo.entity.PersonEntity;
 
 public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
 
-	List<PersonEntity> findByAgeLessThanEqual(@Param("age") int age);
+
+	List<PersonEntity> findByAgeLessThan(@Param("age") int age);
+	List<PersonEntity> findByAgeGreaterThanEqual(@Param("age") int age);
 }
