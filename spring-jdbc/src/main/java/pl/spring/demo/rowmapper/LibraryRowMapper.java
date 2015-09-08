@@ -20,7 +20,7 @@ public class LibraryRowMapper implements RowMapper<LibraryTo> {
         library.setId(rs.getLong(1));
         library.setName(rs.getString(2));
         library.setAddress(mapAddressById(rs.getLong(3)));
-        library.setType(LibraryType.values()[rs.getInt(4)-1]);//-1 cause id in tables start from 1
+        library.setType(LibraryType.valueOf(rs.getString(4)));
         return library;
     }
 

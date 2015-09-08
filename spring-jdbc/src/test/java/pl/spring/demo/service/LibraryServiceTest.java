@@ -31,7 +31,7 @@ public class LibraryServiceTest {
         assertFalse(libraries.isEmpty());
     }
 
-    @Test
+   @Test
     public void testShouldReturnLibraryByName() {
         // given
         final String libraryName = "Biblioteka Miejska";
@@ -42,7 +42,7 @@ public class LibraryServiceTest {
         assertFalse(libraries.isEmpty());
         assertEquals(libraryName, libraries.get(0).getName());
     }
-
+ 
     @Test
     public void testShouldReturnLibrariesByCityName() {
         // given
