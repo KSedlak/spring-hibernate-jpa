@@ -4,10 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
-import org.jinq.jpa.JinqJPAStreamProvider;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import pl.spring.demo.entity.LibraryEntity;
 import pl.spring.demo.jinq.JinqSource;
 import pl.spring.demo.repository.LibraryAdditionalQueries;
@@ -23,7 +20,7 @@ public class LibraryRepositoryJinqImpl  implements LibraryAdditionalQueries {
 	@Override
 	public List<LibraryEntity> filterLibrariesByCity(String city) {
 
-		   return source.libraries(entityManager).where(l->l.getAddress().getCity().equals(city)).toList();
+		   return source.libraries().where(l->l.getAddress().getCity().equals(city)).toList();
 	}
 
 

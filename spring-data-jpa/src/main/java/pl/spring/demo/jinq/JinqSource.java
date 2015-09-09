@@ -2,6 +2,7 @@ package pl.spring.demo.jinq;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceUnit;
 
 import org.jinq.jpa.JinqJPAStreamProvider;
@@ -10,10 +11,14 @@ import org.springframework.stereotype.Component;
 
 import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
+import pl.spring.demo.entity.PersonEntity;
 
 @Component
 public class JinqSource {
   private JinqJPAStreamProvider streams;
+
+  @PersistenceContext(name = "hsql")
+  private EntityManager entityManager;
   
   @PersistenceUnit
   public void setEntityManagerFactory(
@@ -28,11 +33,15 @@ public class JinqSource {
     return streams.streamAll(em, entity);
   }
   
-  public JPAJinqStream<LibraryEntity> libraries(EntityManager em) {
-	    return streams.streamAll(em, LibraryEntity.class);
+  public JPAJinqStream<LibraryEntity> libraries() {
+	    return streams.streamAll(entityManager, LibraryEntity.class);
 }
   
-  public JPAJinqStream<BookEntity> books(EntityManager em) {
-	    return streams.streamAll(em, BookEntity.class);
+  public JPAJinqStream<BookEntity> books() {
+	    return streams.streamAll(entityManager, BookEntity.class);
+}
+  
+  public JPAJinqStream<PersonEntity> persons() {
+	    return streams.streamAll(entityManager,PersonEntity.class);
 }
 }

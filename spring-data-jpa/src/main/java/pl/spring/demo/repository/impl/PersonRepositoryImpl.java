@@ -1,45 +1,41 @@
 package pl.spring.demo.repository.impl;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import org.jinq.jpa.JinqJPAStreamProvider;
 import org.jinq.orm.stream.JinqStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.spring.demo.entity.PersonEntity;
+import pl.spring.demo.jinq.JinqSource;
 import pl.spring.demo.repository.PersonLambdaRepository;
 
 public class PersonRepositoryImpl implements PersonLambdaRepository{
 	
-    @PersistenceContext(name = "hsql")
-    private EntityManager entityManager;
-    @Autowired
-    private JinqJPAStreamProvider jinqJPAStreamProvider;
+   @Autowired
+   private JinqSource jinqSource;
 
     
 	@Override
 	public List<PersonEntity> findAdultPersons() {
-		return jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class).where(per->per.getAge()>=18).toList();
+		return jinqSource.persons().where(per->per.getAge()>=18).toList();
 	}
 
 	@Override
 	public List<PersonEntity> findNotAdultPersons() {
-		return jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class).where(per->per.getAge()<18).toList();
+		return jinqSource.persons().where(per->per.getAge()<18).toList();
 	}
 
 	@Override
 	public List<PersonEntity> findAllPersons() {
-		return jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class).toList();
+		return jinqSource.persons().toList();
 	}
 
 	@Override
 	public List<PersonEntity> findAllPersonsSortedByAge() {
-		return jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class).sortedDescendingBy(per->per.getAge()).toList();
+		return jinqSource.persons().sortedDescendingBy(per->per.getAge()).toList();
 	}
 
 	@Override
 	public List<PersonEntity> findTheOldestUser() {
-		JinqStream<PersonEntity> stream = jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class);
+		JinqStream<PersonEntity> stream =jinqSource.persons();
 		int max=stream.max(p->p.getAge()).intValue();
 		return stream.where(per->per.getAge()==max).toList();
 
@@ -47,14 +43,14 @@ public class PersonRepositoryImpl implements PersonLambdaRepository{
 
 	@Override
 	public List<PersonEntity> findTheYoungestUser() {
-		JinqStream<PersonEntity> stream = jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class);
+		JinqStream<PersonEntity> stream = jinqSource.persons();
 		int max=stream.min(p->p.getAge()).intValue();
 		return stream.where(per->per.getAge()==max).toList();
 	}
 
 	@Override
 	public double getAverageAge() {
-		return jinqJPAStreamProvider.streamAll(entityManager, PersonEntity.class).avg(p->p.getAge());
+		return jinqSource.persons().avg(p->p.getAge());
 	}
 	
 
