@@ -5,9 +5,9 @@ import org.jinq.orm.stream.JinqStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.spring.demo.entity.PersonEntity;
 import pl.spring.demo.jinq.JinqSource;
-import pl.spring.demo.repository.PersonLambdaRepository;
+import pl.spring.demo.repository.PersonAdditionalQueries;
 
-public class PersonRepositoryJinqImpl implements PersonLambdaRepository{
+public class PersonRepositoryJinqImpl implements PersonAdditionalQueries{
 	
    @Autowired
    private JinqSource jinqSource;

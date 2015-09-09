@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import pl.spring.demo.entity.PersonEntity;
 
-public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
+public interface PersonRepository extends JpaRepository<PersonEntity, Long>,PersonAdditionalQueries{
 
 
 	List<PersonEntity> findByAgeLessThan(@Param("age") int age);

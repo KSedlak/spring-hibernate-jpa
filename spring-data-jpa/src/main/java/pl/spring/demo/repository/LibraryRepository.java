@@ -8,7 +8,7 @@ import pl.spring.demo.enums.LibraryType;
 
 import java.util.List;
 
-public interface LibraryRepository extends JpaRepository<LibraryEntity, Long>, LibraryLambdaRepository {
+public interface LibraryRepository extends JpaRepository<LibraryEntity, Long>, LibraryAdditionalQueries {
 
     List<LibraryEntity> findByNameLike(String name);
 

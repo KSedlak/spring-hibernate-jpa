@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * http://www.jinq.org/docs/jpa.html
  */
-public interface LibraryLambdaRepository {
+public interface LibraryAdditionalQueries {
 
     List<LibraryEntity> findAllLibraries();
     LibraryEntity findLibraryById(long id);

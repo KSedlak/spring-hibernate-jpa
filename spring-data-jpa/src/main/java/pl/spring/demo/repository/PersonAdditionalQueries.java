@@ -4,7 +4,7 @@ import java.util.List;
 
 import pl.spring.demo.entity.PersonEntity;
 
-public interface PersonLambdaRepository {
+public interface PersonAdditionalQueries {
 	List<PersonEntity> findAllPersons();
 	List<PersonEntity> findAdultPersons();
 	List<PersonEntity> findNotAdultPersons();

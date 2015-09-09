@@ -7,12 +7,12 @@ import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
 import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.jinq.JinqSource;
-import pl.spring.demo.repository.LibraryLambdaRepository;
+import pl.spring.demo.repository.LibraryAdditionalQueries;
 import pl.spring.demo.searchcriteria.LibrarySearchCriteria;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibraryRepositoryJinqImpl implements LibraryLambdaRepository {
+public class LibraryRepositoryJinqImpl implements LibraryAdditionalQueries {
 
     @Autowired
     private JinqSource jinqSource;
