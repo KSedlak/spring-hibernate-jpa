@@ -24,7 +24,6 @@ public class JinqSource {
   public void setEntityManagerFactory(
       EntityManagerFactory emf) throws Exception {
     streams = new JinqJPAStreamProvider(emf);
-    // Do any additional Jinq initialization needed here.
   }
 
   // Wrapper that passes through Jinq requests to Jinq
