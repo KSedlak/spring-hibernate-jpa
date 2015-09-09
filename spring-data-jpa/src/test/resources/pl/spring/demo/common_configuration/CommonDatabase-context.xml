@@ -36,9 +36,5 @@
             </array>
         </property>
     </bean>
-
-    <bean id="jinqJPAStreamProvider" class="org.jinq.jpa.JinqJPAStreamProvider">
-        <constructor-arg name="factory" ref="entityManagerFactory" />
-    </bean>
 		<bean id="jinq" class="pl.spring.demo.jinq.JinqSource"/>
 </beans>
