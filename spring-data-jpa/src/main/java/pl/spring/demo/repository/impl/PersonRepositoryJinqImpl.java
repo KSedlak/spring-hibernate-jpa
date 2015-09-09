@@ -52,7 +52,13 @@ public class PersonRepositoryJinqImpl implements PersonAdditionalQueries{
 	public double getAverageAge() {
 		return jinqSource.persons().avg(p->p.getAge());
 	}
-	
+
+	@Override
+	public List<PersonEntity> findByLastName(String lastName) {
+		return jinqSource.persons().where(per->per.getLastName().equals(lastName)).toList();
+	}
+
+
 
 
 }

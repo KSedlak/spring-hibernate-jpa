@@ -113,6 +113,16 @@ public class PersonRepositoryTest {
        assertNotNull(result);
        assertEquals(26.33, result,0.1);
    }
-
+   
+   @Test
+   public void testFindByLastName() {
+	final String name="Nowak";
+	   // when
+       List<PersonEntity> persons = personRepository.findByLastName(name);
+       // then
+       assertNotNull(persons);
+       assertFalse(persons.isEmpty());
+       assertEquals(name, persons.get(0).getLastName());
+   }
     
 }

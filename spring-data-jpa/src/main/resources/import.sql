@@ -8,7 +8,7 @@ insert into BOOK (id, title, library_id) values (1, 'Sample Book', 1);
 
 
 insert into PERSON (id, first_name, last_name, age) values (1, 'Damian', 'Kowalski', 17);
-insert into PERSON (id, first_name, last_name, age) values (2, 'Jan', 'Kowalski', 44);
+insert into PERSON (id, first_name, last_name, age) values (2, 'Jan', 'Nowak', 44);
 insert into PERSON (id, first_name, last_name, age) values (3, 'Jola', 'Kowalska', 18);
 
 insert into AUTHOR (author_id, publications) values (1, 15);
