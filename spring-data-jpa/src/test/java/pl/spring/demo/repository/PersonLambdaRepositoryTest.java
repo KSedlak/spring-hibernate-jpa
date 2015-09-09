@@ -60,4 +60,30 @@ public class PersonLambdaRepositoryTest {
         assertEquals(44, persons.get(0).getAge());
     }
    
+    @Test
+    public void testShouldFindOldest() {
+        // when
+        List<PersonEntity> persons = personLambdaRepository.findTheOldestUser();
+        // then
+        assertNotNull(persons);
+        assertFalse(persons.isEmpty());
+        assertEquals(44, persons.get(0).getAge());
+    }
+    @Test
+    public void testShouldFindYoungest() {
+        // when
+        List<PersonEntity> persons = personLambdaRepository.findTheYoungestUser();
+        // then
+        assertNotNull(persons);
+        assertFalse(persons.isEmpty());
+        assertEquals(17, persons.get(0).getAge());
+    }
+    @Test
+    public void testAverageAge(){
+    	   // when  
+    	double result=personLambdaRepository.getAverageAge();
+    	//then
+        assertNotNull(result);
+        assertEquals(26.33, result,0.1);
+    }
 }

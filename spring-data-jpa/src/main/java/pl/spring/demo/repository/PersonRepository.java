@@ -12,4 +12,6 @@ public interface PersonRepository extends JpaRepository<PersonEntity, Long> {
 
 	List<PersonEntity> findByAgeLessThan(@Param("age") int age);
 	List<PersonEntity> findByAgeGreaterThanEqual(@Param("age") int age);
+
+	
 }

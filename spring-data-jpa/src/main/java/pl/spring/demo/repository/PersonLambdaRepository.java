@@ -9,5 +9,7 @@ public interface PersonLambdaRepository {
 	List<PersonEntity> findAdultPersons();
 	List<PersonEntity> findNotAdultPersons();
 	List<PersonEntity> findAllPersonsSortedByAge();
-	
+	List<PersonEntity> findTheOldestUser();
+	List<PersonEntity> findTheYoungestUser();
+	double getAverageAge();
 }
