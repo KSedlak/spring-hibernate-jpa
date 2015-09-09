@@ -7,7 +7,11 @@ import java.util.Set;
 @Entity
 @Table(name = "BOOK")
 public class BookEntity implements Serializable {
-    @Id
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @Column(nullable = false, length = 50)

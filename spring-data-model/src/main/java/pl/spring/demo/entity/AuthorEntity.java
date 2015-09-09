@@ -10,7 +10,11 @@ import java.io.Serializable;
 @Table(name = "AUTHOR")
 @PrimaryKeyJoinColumn(name = "author_id", referencedColumnName = "id")
 public class AuthorEntity extends PersonEntity implements Serializable {
-    @Column(name = "publications")
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	@Column(name = "publications")
     private int publicationsNumber;
 
     public int getPublicationsNumber() {

@@ -5,7 +5,6 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Service;
-
 import pl.spring.demo.enums.LibraryType;
 import pl.spring.demo.rowmapper.LibraryRowMapper;
 import pl.spring.demo.service.LibraryService;

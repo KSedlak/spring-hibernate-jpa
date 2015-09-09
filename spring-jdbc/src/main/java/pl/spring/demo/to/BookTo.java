@@ -39,4 +39,12 @@ public class BookTo {
     public void setAuthors(Set<AuthorTo> authors) {
         this.authors = authors;
     }
+
+	public LibraryTo getLibrary() {
+		return library;
+	}
+
+	public void setLibrary(LibraryTo library) {
+		this.library = library;
+	}
 }

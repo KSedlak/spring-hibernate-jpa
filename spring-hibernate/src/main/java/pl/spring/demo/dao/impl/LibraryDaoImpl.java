@@ -31,6 +31,7 @@ public class LibraryDaoImpl extends AbstractDao<LibraryEntity> implements Librar
     }
 
 	@Override
+    @SuppressWarnings("unchecked")
 	public List<LibraryEntity> findByType(LibraryType type) {
 	     return getSession().createQuery("from LibraryEntity l where l.typeL like :type").setParameter("type", type).list();
 	}
