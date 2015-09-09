@@ -17,15 +17,15 @@ import java.util.List;
 public class LibraryServiceImpl implements LibraryService {
 
     private static final String FIND_ALL_LIBRARIES_SQL =
-            "select id, name, address_id,typeL from (Library p INNER join libraryType t ON p.type_id = t.id ) ";
+            "select id, name, address_id,libraryType from (Library p INNER join libraryType t ON p.type_id = t.id ) ";
     private static final String FIND_ALL_LIBRARIES_BY_NAME_SQL =
-            "select id, name, address_id,typeL from (Library p INNER join libraryType t ON p.type_id = t.id ) where name = :name";
+            "select id, name, address_id,libraryType from (Library p INNER join libraryType t ON p.type_id = t.id ) where name = :name";
     private static final String FIND_ALL_LIBRARIES_BY_TYPE_SQL =
-            "select id, name, address_id, typeL from (Library p INNER join libraryType t ON p.type_id = t.id ) where typeL = :type";
+            "select id, name, address_id, libraryType from (Library p INNER join libraryType t ON p.type_id = t.id ) where libraryType = :type";
     private static final String FIND_ALL_LIBRARIES_IN_CITY_SQL =
-    		"select l.id, l.name, l.address_id, typeL from Library l INNER JOIN  libraryType t ON l.type_id = t.id, Address a where l.address_id = a.id and a.city = :city";
+    		"select l.id, l.name, l.address_id, libraryType from Library l INNER JOIN  libraryType t ON l.type_id = t.id, Address a where l.address_id = a.id and a.city = :city";
     private static final String FIND_ALL_LIBRARIES_HAVING_BOOK_SQL =
-            "select l.id, l.name, l.address_id, typeL from Library l INNER JOIN  libraryType t ON l.type_id = t.id where exists (Select 1 from Book b where b.library_id = l.id and b.title like :title)";
+            "select l.id, l.name, l.address_id, libraryType from Library l INNER JOIN  libraryType t ON l.type_id = t.id where exists (Select 1 from Book b where b.library_id = l.id and b.title like :title)";
 
     @Autowired
     private NamedParameterJdbcOperations jdbcTemplate;
@@ -56,8 +56,8 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
 	@Override
-	public List<LibraryTo> findLibrariesByLibraryType(LibraryType typeL) {
-        SqlParameterSource params = new MapSqlParameterSource("type", typeL.toString());
+	public List<LibraryTo> findLibrariesByLibraryType(LibraryType libraryType) {
+        SqlParameterSource params = new MapSqlParameterSource("type", libraryType.toString());
         return jdbcTemplate.query(FIND_ALL_LIBRARIES_BY_TYPE_SQL, params, libraryRowMapper);
 	}
 }

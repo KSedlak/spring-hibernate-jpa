@@ -10,5 +10,5 @@ public interface LibraryService {
     List<LibraryTo> findAllLibrariesByName(String name);
     List<LibraryTo> findAllLibrariesInCity(String cityName);
     List<LibraryTo> findLibrariesThatHaveBookByTitle(String bookTitle);
-	List<LibraryTo> findLibrariesByLibraryType(LibraryType typeL);
+	List<LibraryTo> findLibrariesByLibraryType(LibraryType type);
 }
