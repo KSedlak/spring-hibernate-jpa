@@ -48,7 +48,7 @@ public class LibraryRepositoryTest {
     	final LibraryType type=LibraryType.academic;
         // when
         List<LibraryEntity> libraryEntity = libraryRepository.findByType_custom(type);
-        LibraryType result= libraryEntity.get(0).getTypeL();
+        LibraryType result= libraryEntity.get(0).getLibraryType();
         // then
         assertNotNull(libraryEntity);
         assertFalse(libraryEntity.isEmpty());
@@ -60,8 +60,8 @@ public class LibraryRepositoryTest {
         // given
     	final LibraryType type=LibraryType.academic;
         // when
-        List<LibraryEntity> libraryEntity = libraryRepository.findByTypeL(type);
-        LibraryType result= libraryEntity.get(0).getTypeL();
+        List<LibraryEntity> libraryEntity = libraryRepository.findByLibraryType(type);
+        LibraryType result= libraryEntity.get(0).getLibraryType();
         // the
         assertNotNull(libraryEntity);
         assertFalse(libraryEntity.isEmpty());

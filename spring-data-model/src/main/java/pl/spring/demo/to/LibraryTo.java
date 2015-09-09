@@ -10,7 +10,7 @@ public class LibraryTo {
     private AddressTo address;
     private Set<BookTo> books;
     private long version;
-    private LibraryType typeL;
+    private LibraryType libraryType;
 
     public Long getId() {
         return id;
@@ -52,11 +52,13 @@ public class LibraryTo {
         this.version = version;
     }
 
-	public LibraryType getTypeL() {
-		return typeL;
+	public LibraryType getLibraryType() {
+		return libraryType;
 	}
 
-	public void setTypeL(LibraryType typeL) {
-		this.typeL = typeL;
+	public void setLibraryType(LibraryType libraryType) {
+		this.libraryType = libraryType;
 	}
+
+
 }

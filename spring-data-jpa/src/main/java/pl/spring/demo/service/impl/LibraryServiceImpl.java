@@ -60,7 +60,7 @@ public class LibraryServiceImpl implements LibraryService {
 	}
 	@Override
 	public List<LibraryTo> findAllLibrariesByType(LibraryType type) {
-	       List<LibraryEntity> libraries = libraryRepository.findByTypeL(type);
+	       List<LibraryEntity> libraries = libraryRepository.findByLibraryType(type);
 	        return mapper.mapAsList(libraries, LibraryTo.class);
 	}
 }

@@ -26,7 +26,7 @@ public class LibraryEntity implements Serializable {
     @Version
     private long version;
     @Enumerated(EnumType.STRING)
-    private LibraryType typeL;
+    private LibraryType libraryType;
 
     public Long getId() {
         return id;
@@ -68,13 +68,15 @@ public class LibraryEntity implements Serializable {
         this.version = version;
     }
 
-	public LibraryType getTypeL() {
-		return typeL;
+	public LibraryType getLibraryType() {
+		return libraryType;
 	}
 
-	public void setTypeL(LibraryType typeL) {
-		this.typeL = typeL;
+	public void setLibraryType(LibraryType libraryType) {
+		this.libraryType = libraryType;
 	}
+
+
 
 
 }

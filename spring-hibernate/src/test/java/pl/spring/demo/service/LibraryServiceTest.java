@@ -108,7 +108,7 @@ public class LibraryServiceTest {
         // then
         assertNotNull(libraries);
         assertFalse(libraries.isEmpty());
-        assertEquals(type.toString(), libraries.get(0).getTypeL().toString());
+        assertEquals(type.toString(), libraries.get(0).getLibraryType().toString());
     }
 
 

@@ -70,7 +70,7 @@ public class LibraryServiceTest {
     	final LibraryType type=LibraryType.academic;
         // when
         List<LibraryTo> libraries = libraryService.findAllLibrariesByType_custom(type);
-        LibraryType result= libraries.get(0).getTypeL();
+        LibraryType result= libraries.get(0).getLibraryType();
         // then
         assertNotNull(libraries);
         assertFalse(libraries.isEmpty());
@@ -83,7 +83,7 @@ public class LibraryServiceTest {
     	final LibraryType type=LibraryType.academic;
         // when
         List<LibraryTo> libraries = libraryService.findAllLibrariesByType(type);
-        LibraryType result=libraries.get(0).getTypeL();
+        LibraryType result=libraries.get(0).getLibraryType();
         // the
         assertNotNull(libraries);
         assertFalse(libraries.isEmpty());

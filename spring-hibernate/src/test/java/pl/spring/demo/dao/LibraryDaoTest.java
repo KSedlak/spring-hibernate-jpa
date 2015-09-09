@@ -36,7 +36,7 @@ public class LibraryDaoTest {
         final LibraryType type=LibraryType.academic;
         // when
         List<LibraryEntity> libraryEntity = libraryDao.findByType(type);
-        LibraryType res=libraryEntity.get(0).getTypeL();
+        LibraryType res=libraryEntity.get(0).getLibraryType();
         // then
         assertNotNull(libraryEntity);
         assertFalse(libraryEntity.isEmpty());

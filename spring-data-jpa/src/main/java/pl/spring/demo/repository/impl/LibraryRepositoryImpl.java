@@ -48,7 +48,7 @@ public class LibraryRepositoryImpl implements LibraryLambdaRepository {
         }
         if (librarySearchCriteria.getType() != null) {
            LibraryType type = librarySearchCriteria.getType();
-            stream = stream.where(l -> l.getTypeL().equals(type));
+            stream = stream.where(l -> l.getLibraryType().equals(type));
         }
         if (!librarySearchCriteria.getAnyBook().isEmpty()) {
             List<String> lambdaParameter = new ArrayList<>(librarySearchCriteria.getAnyBook());
@@ -60,7 +60,7 @@ public class LibraryRepositoryImpl implements LibraryLambdaRepository {
 
 	@Override
 	public List<LibraryEntity> findLibraryByType(LibraryType type) {
-	    return jinqJPAStreamProvider.streamAll(entityManager, LibraryEntity.class).where( l -> l.getTypeL() == type ).toList();
+	    return jinqJPAStreamProvider.streamAll(entityManager, LibraryEntity.class).where( l -> l.getLibraryType()== type ).toList();
 	}
 
 	@Override
