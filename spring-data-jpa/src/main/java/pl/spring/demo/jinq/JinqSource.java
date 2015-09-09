@@ -9,6 +9,7 @@ import org.jinq.jpa.JinqJPAStreamProvider;
 import org.jinq.jpa.JPAJinqStream;
 import org.springframework.stereotype.Component;
 
+import pl.spring.demo.entity.AuthorEntity;
 import pl.spring.demo.entity.BookEntity;
 import pl.spring.demo.entity.LibraryEntity;
 import pl.spring.demo.entity.PersonEntity;
@@ -43,4 +44,10 @@ public class JinqSource {
   public JPAJinqStream<PersonEntity> persons() {
 	    return streams.streamAll(entityManager,PersonEntity.class);
 }
+  
+  public JPAJinqStream<AuthorEntity> authors() {
+	    return streams.streamAll(entityManager,AuthorEntity.class);
+}
+
+  
 }

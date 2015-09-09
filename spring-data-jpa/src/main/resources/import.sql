@@ -12,5 +12,6 @@ insert into PERSON (id, first_name, last_name, age) values (2, 'Jan', 'Nowak', 4
 insert into PERSON (id, first_name, last_name, age) values (3, 'Jola', 'Kowalska', 18);
 
 insert into AUTHOR (author_id, publications) values (1, 15);
+insert into AUTHOR (author_id, publications) values (2, 25);
 
 insert into book_author (BOOK_ID, AUTHOR_ID) values (1, 1);

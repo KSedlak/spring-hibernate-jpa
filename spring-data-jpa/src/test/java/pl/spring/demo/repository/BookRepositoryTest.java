@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import pl.spring.demo.entity.BookEntity;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -43,5 +42,18 @@ public class BookRepositoryTest {
         assertNotNull(books);
         assertFalse(books.isEmpty());
         assertEquals(title,books.get(0).getTitle());
+    }
+
+    @Test
+    public void testShouldFindBookNearPostCode() {
+        // given
+    	final String post="55-555";
+        // when
+        List<BookEntity> books = bookRepository.findBooksNearPostCode(post);
+        // then
+        assertNotNull(books);
+        assertFalse(books.isEmpty());
+        assertEquals("Sample Book", books.get(0).getTitle());
+
     }
 }

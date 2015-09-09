@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 import pl.spring.demo.entity.BookEntity;
 
-public interface BookRepository extends JpaRepository<BookEntity, Long> {
+public interface BookRepository extends JpaRepository<BookEntity, Long> , BookAdditionalQueries{
 	
 	List<BookEntity> findBookByTitle(@Param("title") String title);
 }
