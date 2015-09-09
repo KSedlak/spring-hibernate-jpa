@@ -7,7 +7,7 @@ import pl.spring.demo.entity.PersonEntity;
 import pl.spring.demo.jinq.JinqSource;
 import pl.spring.demo.repository.PersonLambdaRepository;
 
-public class PersonRepositoryImpl implements PersonLambdaRepository{
+public class PersonRepositoryJinqImpl implements PersonLambdaRepository{
 	
    @Autowired
    private JinqSource jinqSource;

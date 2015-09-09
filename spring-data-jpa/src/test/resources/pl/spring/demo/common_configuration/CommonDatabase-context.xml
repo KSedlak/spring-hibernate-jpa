@@ -11,7 +11,7 @@
                            http://www.springframework.org/schema/data/jpa
                            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <jpa:repositories base-package="pl.spring.demo.repository" />
+    <jpa:repositories base-package="pl.spring.demo.repository" repository-impl-postfix="JinqImpl"/>
 
     <util:properties id="hsqldbJpaProps" location="classpath:/test_data_access/hsqldb_jpa.properties"/>
 
